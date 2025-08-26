@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_suppliers
+    description: >
+      Staging table for supplier master data from EXTRACT_SUPPLIERS
+      
+  - name: stg_purchase_orders
+    description: >
+      Staging table for purchase order data from CUSTOMIZED_PURCHASE_ORDERS
+      
+  - name: stg_supplier_invoices
+    description: >
+      Staging table for supplier invoice data from SUPPLIER_INVOICES
+      
+  - name: stg_expense_reports
+    description: >
+      Staging table for expense report data from EXPENSE_REPORTS
+      
+  - name: stg_requisitions
+    description: >
+      Staging table for requisition data from REQUISITIONS_BY_COMPANY
+      
+  - name: stg_receipts
+    description: >
+      Staging table for receipt data from RECEIPT_WITH_REQUISITIONER
+      
+  - name: stg_payments
+    description: >
+      Staging table for supplier payment data from SUPPLIER_PAYMENTS

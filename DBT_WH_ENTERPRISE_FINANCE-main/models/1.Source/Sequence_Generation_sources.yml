@@ -21,6 +21,12 @@ sources:
         description: dimclientidkey sequence generation
       - name: dimprovideridkey
         description: dimprovideridkey sequence generation
+      - name: dimsupplieridkey
+        description: dimsupplieridkey sequence generation
+      - name: dimcompanyidkey
+        description: dimcompanyidkey sequence generation
+      - name: dimspendcategoryidkey
+        description: dimspendcategoryidkey sequence generation
         
   - name: metrics_sequences
     description: List of all ZeDW Datamart source tables

@@ -48,8 +48,12 @@ models:
     materialized: view 
     2.Stage:
       +schema: STAGE
+      PROCUREMENT:
+        +schema: STAGE_PROCUREMENT
     3.Inter:
       +schema: INTER
+      PROCUREMENT:
+        +schema: INTER_PROCUREMENT
     4.Mart:      
       +transient: false
       +schema: MART
@@ -67,6 +71,9 @@ models:
       
       OPERATIONAL:
         +schema:  OPERATIONAL
+      
+      PROCUREMENT:
+        +schema:  PROCUREMENT
 
     5.Model:
       +schema: MODEL

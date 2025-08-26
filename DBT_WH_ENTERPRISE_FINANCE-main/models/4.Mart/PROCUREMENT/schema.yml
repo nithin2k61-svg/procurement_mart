@@ -1,0 +1,147 @@
+version: 2
+
+models:
+  - name: dim_supplier
+    description: >
+      Mart dimension table for supplier master data with SCD Type 2 tracking
+    columns:
+      - name: dim_supplier_id
+        description: Surrogate key for supplier dimension
+        tests:
+          - not_null
+          - unique
+      - name: SUPPLIER_ID
+        description: Natural key for supplier
+        tests:
+          - not_null
+      - name: SUPPLIER
+        description: Supplier name
+      - name: SUPPLIER_CATEGORY
+        description: Category classification of supplier
+      - name: SUPPLIER_STATUS
+        description: Current status of supplier
+      - name: SUPPLIER_APPROVAL_STATUS
+        description: Approval status of supplier
+      - name: COUNTRY
+        description: Country where supplier is located
+
+  - name: dim_company
+    description: >
+      Mart dimension table for company/legal entity data
+    columns:
+      - name: dim_company_id
+        description: Surrogate key for company dimension
+        tests:
+          - not_null
+          - unique
+      - name: COMPANY_CODE
+        description: Natural key for company
+        tests:
+          - not_null
+      - name: COMPANY_NAME
+        description: Company name
+
+  - name: dim_spend_category
+    description: >
+      Mart dimension table for spend category data with hierarchical groupings
+    columns:
+      - name: dim_spend_category_id
+        description: Surrogate key for spend category dimension
+        tests:
+          - not_null
+          - unique
+      - name: SPEND_CATEGORY_CODE
+        description: Natural key for spend category
+        tests:
+          - not_null
+      - name: SPEND_CATEGORY_NAME
+        description: Spend category name
+      - name: SPEND_CATEGORY_GROUP
+        description: High-level grouping of spend categories
+
+  - name: fact_purchase_orders
+    description: >
+      Mart fact table for purchase order transactions with all related measures
+    columns:
+      - name: dim_supplier_id
+        description: Foreign key to supplier dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_supplier')
+              field: dim_supplier_id
+      - name: dim_company_id
+        description: Foreign key to company dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_company')
+              field: dim_company_id
+      - name: dim_spend_category_id
+        description: Foreign key to spend category dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_spend_category')
+              field: dim_spend_category_id
+      - name: PO_NUMBER
+        description: Purchase order number
+        tests:
+          - not_null
+      - name: TOTAL_PO_AMOUNT
+        description: Total purchase order amount
+      - name: EXTENDED_AMOUNT
+        description: Extended line amount
+      - name: INVOICED_PO_AMOUNT
+        description: Amount invoiced against PO
+      - name: TOTAL_REMAINING_PO_AMOUNT
+        description: Remaining PO amount
+
+  - name: fact_supplier_invoices
+    description: >
+      Mart fact table for supplier invoice transactions
+    columns:
+      - name: dim_supplier_id
+        description: Foreign key to supplier dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_supplier')
+              field: dim_supplier_id
+      - name: dim_company_id
+        description: Foreign key to company dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_company')
+              field: dim_company_id
+      - name: SUPPLIER_INVOICE
+        description: Supplier invoice identifier
+        tests:
+          - not_null
+      - name: INVOICE_AMOUNT
+        description: Total invoice amount
+      - name: BALANCE_DUE
+        description: Outstanding balance due
+
+  - name: fact_expense_reports
+    description: >
+      Mart fact table for employee expense report transactions
+    columns:
+      - name: dim_company_id
+        description: Foreign key to company dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_company')
+              field: dim_company_id
+      - name: EXPENSE_REPORT
+        description: Expense report identifier
+        tests:
+          - not_null
+      - name: TOTAL_AMOUNT
+        description: Total expense amount
+      - name: CREDIT_CARD_PAID
+        description: Amount paid via credit card
+      - name: EXPENSE_PAYEE_PAID
+        description: Amount paid directly to payee
