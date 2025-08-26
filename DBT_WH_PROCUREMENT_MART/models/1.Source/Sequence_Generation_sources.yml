@@ -1,0 +1,31 @@
+version: 2
+sources:
+  - name: sequence_sources
+    description: List of all Procurement Datamart sequence sources
+    database: |
+      {%- if  target.name == "dev" -%} dev_procurement_warehouse
+      {%- elif target.name == "qa"  -%} qa_procurement_warehouse
+      {%- elif target.name == "uat"  -%} uat_procurement_warehouse
+      {%- elif target.name == "prod"  -%} prod_procurement_warehouse
+      {%- else -%} invalid_database
+      {%- endif -%}
+    schema: SOURCE
+    tables:
+      - name: dimsupplieridkey
+        description: dimsupplieridkey sequence generation
+      - name: dimcompanyidkey
+        description: dimcompanyidkey sequence generation
+      - name: dimspendcategoryidkey
+        description: dimspendcategoryidkey sequence generation
+      - name: dimcostcenteridkey
+        description: dimcostcenteridkey sequence generation
+      - name: dimcurrencyidkey
+        description: dimcurrencyidkey sequence generation
+      - name: dimbuyeridkey
+        description: dimbuyeridkey sequence generation
+      - name: dimlocationidkey
+        description: dimlocationidkey sequence generation
+      - name: dimprojectidkey
+        description: dimprojectidkey sequence generation
+      - name: dimdateidkey
+        description: dimdateidkey sequence generation

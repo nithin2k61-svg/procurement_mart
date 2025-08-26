@@ -1,0 +1,44 @@
+# Sample profiles.yml - Copy to ~/.dbt/profiles.yml and update with your credentials
+
+default:
+  outputs:
+    dev:
+      type: snowflake
+      account: your_account.region
+      user: your_username
+      password: your_password  # or use key_path for key-based auth
+      role: your_role
+      database: DEV_PROCUREMENT_WAREHOUSE
+      warehouse: your_warehouse
+      schema: dbt_{{ env_var('DBT_USER', 'dev_user') }}
+      threads: 4
+      client_session_keep_alive: False
+      query_tag: dbt_dev
+      
+    qa:
+      type: snowflake
+      account: your_account.region
+      user: your_username
+      password: your_password
+      role: your_role
+      database: QA_PROCUREMENT_WAREHOUSE
+      warehouse: your_warehouse
+      schema: dbt_qa
+      threads: 4
+      client_session_keep_alive: False
+      query_tag: dbt_qa
+      
+    prod:
+      type: snowflake
+      account: your_account.region
+      user: your_username
+      password: your_password
+      role: your_role
+      database: PROD_PROCUREMENT_WAREHOUSE
+      warehouse: your_warehouse
+      schema: dbt_prod
+      threads: 8
+      client_session_keep_alive: False
+      query_tag: dbt_prod
+      
+  target: dev  # default target
