@@ -6,6 +6,11 @@ with
             dim_supplier_id,
             dim_company_id,
             dim_spend_category_id,
+            dim_cost_center_id,
+            dim_currency_id,
+            dim_buyer_id,
+            dim_location_id,
+            dim_project_id,
             dim_document_date_id,
             dim_completed_date_id,
             

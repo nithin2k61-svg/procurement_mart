@@ -27,6 +27,16 @@ sources:
         description: dimcompanyidkey sequence generation
       - name: dimspendcategoryidkey
         description: dimspendcategoryidkey sequence generation
+      - name: dimcostcenteridkey
+        description: dimcostcenteridkey sequence generation
+      - name: dimcurrencyidkey
+        description: dimcurrencyidkey sequence generation
+      - name: dimbuyeridkey
+        description: dimbuyeridkey sequence generation
+      - name: dimlocationidkey
+        description: dimlocationidkey sequence generation
+      - name: dimprojectidkey
+        description: dimprojectidkey sequence generation
         
   - name: metrics_sequences
     description: List of all ZeDW Datamart source tables

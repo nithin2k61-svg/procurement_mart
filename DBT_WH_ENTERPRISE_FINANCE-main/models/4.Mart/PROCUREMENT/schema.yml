@@ -145,3 +145,177 @@ models:
         description: Amount paid via credit card
       - name: EXPENSE_PAYEE_PAID
         description: Amount paid directly to payee
+
+  - name: dim_cost_center
+    description: >
+      Mart dimension table for cost center data with hierarchical groupings
+    columns:
+      - name: dim_cost_center_id
+        description: Surrogate key for cost center dimension
+        tests:
+          - not_null
+          - unique
+      - name: COST_CENTER_CODE
+        description: Natural key for cost center
+        tests:
+          - not_null
+      - name: COST_CENTER_NAME
+        description: Cost center name
+      - name: COST_CENTER_GROUP
+        description: High-level grouping of cost centers
+
+  - name: dim_currency
+    description: >
+      Mart dimension table for currency data with classifications
+    columns:
+      - name: dim_currency_id
+        description: Surrogate key for currency dimension
+        tests:
+          - not_null
+          - unique
+      - name: CURRENCY_CODE
+        description: Natural key for currency
+        tests:
+          - not_null
+      - name: CURRENCY_NAME
+        description: Full currency name
+      - name: CURRENCY_TYPE
+        description: Currency classification (Major/Other)
+
+  - name: dim_buyer
+    description: >
+      Mart dimension table for buyer data with department classifications
+    columns:
+      - name: dim_buyer_id
+        description: Surrogate key for buyer dimension
+        tests:
+          - not_null
+          - unique
+      - name: BUYER_CODE
+        description: Natural key for buyer
+        tests:
+          - not_null
+      - name: BUYER_NAME
+        description: Buyer name
+      - name: BUYER_DEPARTMENT
+        description: Department of the buyer
+
+  - name: dim_location
+    description: >
+      Mart dimension table for location data with region and type classifications
+    columns:
+      - name: dim_location_id
+        description: Surrogate key for location dimension
+        tests:
+          - not_null
+          - unique
+      - name: LOCATION_CODE
+        description: Natural key for location
+        tests:
+          - not_null
+      - name: LOCATION_NAME
+        description: Location name
+      - name: LOCATION_REGION
+        description: Geographic region of location
+      - name: LOCATION_TYPE
+        description: Type of location (HQ, Branch, etc.)
+
+  - name: dim_project
+    description: >
+      Mart dimension table for project data with type and status classifications
+    columns:
+      - name: dim_project_id
+        description: Surrogate key for project dimension
+        tests:
+          - not_null
+          - unique
+      - name: PROJECT_CODE
+        description: Natural key for project
+        tests:
+          - not_null
+      - name: PROJECT_NAME
+        description: Project name
+      - name: PROJECT_TYPE
+        description: Type of project (IT, Construction, etc.)
+      - name: PROJECT_STATUS
+        description: Current status of project
+
+  - name: fact_requisitions
+    description: >
+      Mart fact table for requisition transactions
+    columns:
+      - name: dim_supplier_id
+        description: Foreign key to supplier dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_supplier')
+              field: dim_supplier_id
+      - name: dim_company_id
+        description: Foreign key to company dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_company')
+              field: dim_company_id
+      - name: REQUISITION_NUMBER
+        description: Requisition number
+        tests:
+          - not_null
+      - name: TOTAL_AMOUNT
+        description: Total requisition amount
+
+  - name: fact_receipts
+    description: >
+      Mart fact table for receipt transactions
+    columns:
+      - name: dim_company_id
+        description: Foreign key to company dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_company')
+              field: dim_company_id
+      - name: dim_currency_id
+        description: Foreign key to currency dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_currency')
+              field: dim_currency_id
+      - name: RECEIPT
+        description: Receipt identifier
+        tests:
+          - not_null
+      - name: TOTAL_AMOUNT
+        description: Total receipt amount
+
+  - name: fact_payments
+    description: >
+      Mart fact table for payment transactions
+    columns:
+      - name: dim_supplier_id
+        description: Foreign key to supplier dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_supplier')
+              field: dim_supplier_id
+      - name: dim_company_id
+        description: Foreign key to company dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_company')
+              field: dim_company_id
+      - name: dim_currency_id
+        description: Foreign key to currency dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_currency')
+              field: dim_currency_id
+      - name: PAYMENT_AMOUNT
+        description: Payment amount
+      - name: INVOICES_PAID_COUNT
+        description: Number of invoices paid

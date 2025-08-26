@@ -6,6 +6,11 @@ with
             case when ds.dim_supplier_id is null then -1 else ds.dim_supplier_id end as dim_supplier_id,
             case when dc.dim_company_id is null then -1 else dc.dim_company_id end as dim_company_id,
             case when dsc.dim_spend_category_id is null then -1 else dsc.dim_spend_category_id end as dim_spend_category_id,
+            case when dcc.dim_cost_center_id is null then -1 else dcc.dim_cost_center_id end as dim_cost_center_id,
+            case when dcur.dim_currency_id is null then -1 else dcur.dim_currency_id end as dim_currency_id,
+            case when db.dim_buyer_id is null then -1 else db.dim_buyer_id end as dim_buyer_id,
+            case when dl.dim_location_id is null then -1 else dl.dim_location_id end as dim_location_id,
+            case when dp.dim_project_id is null then -1 else dp.dim_project_id end as dim_project_id,
             case when dd_doc.dim_date_id is null then -1 else dd_doc.dim_date_id end as dim_document_date_id,
             case when dd_comp.dim_date_id is null then -1 else dd_comp.dim_date_id end as dim_completed_date_id,
             
@@ -60,6 +65,16 @@ with
             on po.COMPANY = dc.COMPANY_CODE
         left outer join {{ ref("intr_dim_spend_category") }} dsc 
             on po.SPEND_CATEGORY = dsc.SPEND_CATEGORY_CODE
+        left outer join {{ ref("intr_dim_cost_center") }} dcc 
+            on po.COST_CENTER = dcc.COST_CENTER_CODE
+        left outer join {{ ref("intr_dim_currency") }} dcur 
+            on po.CURRENCY_FOR_ORDER = dcur.CURRENCY_CODE
+        left outer join {{ ref("intr_dim_buyer") }} db 
+            on po.BUYER = db.BUYER_CODE
+        left outer join {{ ref("intr_dim_location") }} dl 
+            on po.LOCATION = dl.LOCATION_CODE
+        left outer join {{ ref("intr_dim_project") }} dp 
+            on po.PROJECT = dp.PROJECT_CODE
         left outer join {{ ref("dim_date") }} dd_doc 
             on po.DOCUMENT_DATE = dd_doc.dateday
         left outer join {{ ref("dim_date") }} dd_comp 
