@@ -66,10 +66,10 @@ with
             [additional attributes],
             src_sys_id,
             src_uniq_cd,
-            row_cre_dt,
-            row_cre_usr_id,
-            row_mod_dt,
-            row_mod_usr_id
+            getdate() as row_cre_dt,
+            'SFAdmin' as row_cre_usr_id,
+            getdate() as row_mod_dt,
+            'SFAdmin' as row_mod_usr_id
         from {{ ref("stg_[source]") }}
     )
 
@@ -138,3 +138,11 @@ select * from fact_[entity]
 - Unknown members (-1) for all dimensions
 - Proper foreign key relationships with tests
 - Complete audit trail with src_sys_id, src_uniq_cd, timestamps
+
+## Audit Column Standards ✅ FIXED
+- **row_cre_dt**: Always use `getdate()` (not coalesce)
+- **row_cre_usr_id**: Always use `'SFAdmin'` (not coalesce)
+- **row_mod_dt**: Always use `getdate()` (not coalesce) 
+- **row_mod_usr_id**: Always use `'SFAdmin'` (not coalesce)
+
+All staging models have been updated with correct audit columns.
