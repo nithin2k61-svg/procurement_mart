@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: metrics_user
+    description: >
+      Mart table is for metrics_user
+
+  - name: metrics_category
+    description: >
+      Mart table is for metrics_category    
+
+  - name: metrics
+    description: >
+      Mart table is for metrics
+  
+  - name: metrics_kpi
+    description: >
+      Mart table is for metrics kpi

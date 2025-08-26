@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: stg_account_hierarchy
+    description: >
+      Stage table is with Salesforce account hierarchy

@@ -1,0 +1,19 @@
+version: 2
+sources:
+  - name: salesforce_sources
+    description: List of all Salesforce source tables
+    database:  |
+      {%- if  target.name == "dev" -%} DEV_DATALAKE
+      {%- elif target.name == "qa"  -%} QA_DATALAKE
+      {%- elif target.name == "uat"  -%} PROD_DATALAKE
+      {%- elif target.name == "prod"  -%}  PROD_DATALAKE
+      {%- else -%} invalid_database
+      {%- endif -%} 
+    schema: salesforce
+    tables:
+      - name: account
+        description: Table has the account information
+      - name: user
+        description: Table has the user information
+      - name: OPPORTUNITY
+        description: Table has the OPPORTUNITY information

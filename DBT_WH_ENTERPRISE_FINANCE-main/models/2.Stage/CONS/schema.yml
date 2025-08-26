@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_businessunit
+    description: >
+      Consolidated stage table is for business units
+
+  - name: stg_producttype
+    description: >
+      Consolidated stage table is for product types
+
+  - name: stg_sourcesystem
+    description: >
+      Consolidated stage table is for source systems  
+
+  - name: stg_dimdate  
+    description: >
+      Consolidated stage table is for Dates

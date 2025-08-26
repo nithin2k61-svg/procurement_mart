@@ -1,0 +1,31 @@
+version: 2
+sources:
+  - name: caidwh_sources
+    description: List of all CAIDWH source tables
+    database: |
+      {%- if  target.name == "dev" -%} DEV_CCS_WAREHOUSE
+      {%- elif target.name == "qa"  -%} QA_CCS_WAREHOUSE
+      {%- elif target.name == "uat"  -%} PROD_CCS_WAREHOUSE
+      {%- elif target.name == "prod"  -%}  PROD_CCS_WAREHOUSE
+      {%- else -%} invalid_database
+      {%- endif -%}
+    schema: CLAIMS_MART
+    tables:
+      - name: factclaim
+        description: Table has the FACT data for Claims 
+      - name: factjournal
+        description: Table has the FACT data for Journals
+      - name: dimclaimeligible
+        description: Table has the Claim Eligible Status dimension data for Claims
+      - name: dimproduct
+        description: Table has the Product dimension data for Claims
+      - name: dimclient
+        description: Table has the Client dimension data for Claims
+      - name: dimdate
+        description: Table has the Date dimension data for Claims
+      - name: DimSavingsChannel
+        description: Table has the Savings Channel dimension data for Claim Products
+      - name: dimsystemofrecord
+        description: system of record information        
+      - name: DimWorkdaySavingsChannel
+        description: Table has the Workday Savings Channel dimension data for Claim Products

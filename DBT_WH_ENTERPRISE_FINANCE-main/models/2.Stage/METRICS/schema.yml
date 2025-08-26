@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_metrics_user
+    description: >
+      Stage table is with metric users data sourced from Finance metrics
+  - name: stg_metrics
+    description: >
+      Stage table is with metrics data sourced from Finance metrics
+  - name: stg_metrics_category
+    description: >
+      Stage table is with metric category data sourced from Finance metrics  
+  

@@ -1,0 +1,68 @@
+version: 2
+sources:
+  - name: ppswh_comm_sources
+    description: List of all PPS source tables
+    database:  |
+      {%- if  target.name == "dev" -%} DEV_LEGACYPPSWAREHOUSE
+      {%- elif target.name == "qa"  -%} QA_LEGACYPPSWAREHOUSE
+      {%- elif target.name == "uat"  -%} PROD_LEGACYPPSWAREHOUSE
+      {%- elif target.name == "prod"  -%}  PROD_LEGACYPPSWAREHOUSE
+      {%- else -%} invalid_database
+      {%- endif -%} 
+    schema: COMM
+    tables:
+      - name: PayerRevenue
+        description: Table has the PayerRevenue data for Payments
+
+  - name: ppswh_dbo_sources
+    description: List of all PPS source tables
+    database: |
+      {%- if  target.name == "dev" -%} DEV_LEGACYPPSWAREHOUSE
+      {%- elif target.name == "qa"  -%} QA_LEGACYPPSWAREHOUSE
+      {%- elif target.name == "uat"  -%} PROD_LEGACYPPSWAREHOUSE
+      {%- elif target.name == "prod"  -%} PROD_LEGACYPPSWAREHOUSE
+      {%- else -%} invalid_database
+      {%- endif -%}
+    schema: DBO
+    tables:
+      - name: Payer
+        description: Table has the Payer Data for Payments
+      - name: PaymentPolicy
+        description: Table has the Payment Policy Data for Payments
+      - name: DIMDATE
+        description: Table has the DIMDATE for Payments
+      - name: ProviderPayments
+        description: ProviderPayments information  
+
+
+  - name: ppswh_accounting_sources
+    description: List of all PPS source tables
+    database: |
+      {%- if  target.name == "dev" -%} DEV_LEGACYPPSWAREHOUSE
+      {%- elif target.name == "qa"  -%} QA_LEGACYPPSWAREHOUSE
+      {%- elif target.name == "uat"  -%} PROD_LEGACYPPSWAREHOUSE
+      {%- elif target.name == "prod"  -%} PROD_LEGACYPPSWAREHOUSE
+      {%- else -%} invalid_database
+      {%- endif -%}
+    schema: ACCOUNTING
+    tables:
+      - name: PaymentRevenueTransactions_tbl
+        description: Table has the Payment Revenue Transactions data for Payments
+      - name: RevenueTransactionType
+        description: Table has the Payment Revenue Transactions type data for Payments
+        
+  - name: ppswh_ext_sources
+    description: List of all PPS source tables
+    database:  |
+      {%- if  target.name == "dev" -%} DEV_LEGACYPPSWAREHOUSE
+      {%- elif target.name == "qa"  -%} QA_LEGACYPPSWAREHOUSE
+      {%- elif target.name == "uat"  -%} PROD_LEGACYPPSWAREHOUSE
+      {%- elif target.name == "prod"  -%}  PROD_LEGACYPPSWAREHOUSE
+      {%- else -%} invalid_database
+      {%- endif -%} 
+    schema: EXT
+    tables:
+      - name: FactDailyExtractedPayments
+        description: Table has the FactDailyExtractedPayments data for Payments
+      - name: FACTDAILYPREPASSPAYMENTS
+        description: Table has the FACTDAILYPREPASSPAYMENTS data for Payments

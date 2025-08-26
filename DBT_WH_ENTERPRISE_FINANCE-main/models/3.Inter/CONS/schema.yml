@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: intr_dim_business_unit
+    description: >
+      Intermediate table is for business unit dimension
+
+  - name: intr_dim_client
+    description: >
+      Intermediate table is for client dimension      
+
+  - name: intr_dim_product_type
+    description: >
+      Intermediate table is for product type dimension            
+
+  - name: intr_dim_source_system
+    description: >
+      Intermediate table is for source system dimension                  
+
+  - name: intr_fact_budgets_aggr
+    description: >
+      Intermediate table is for budget aggregation fact                        
+
+  - name: intr_fact_claims_aggr
+    description: >
+      Intermediate table is for claim aggregation fact                              
+
+  - name: intr_fact_comms_aggr
+    description: >
+      Intermediate table is for commisssions aggregation fact                                    
+
+  - name: intr_fact_payments_aggr
+    description: >
+      Intermediate table is for payment aggregation fact                                          
+
+  - name: intr_fact_revenue_aggr
+    description: >
+      Intermediate table is for revenue aggregation fact
+      
+  - name: intr_dim_provider
+    description: >
+      Intermediate table is for dimension provider info
+
+  - name: intr_fact_revenue_adaptive_aggr
+    description: >
+      Intermediate table is for revenue aggregation fact  
+
+  - name: intr_dim_exchrates
+    description: >
+      Intermediate table is for dimension exchange rates
+  - name: intr_dim_accounts
+    description: >
+     Intermediate table is for accounts dimension

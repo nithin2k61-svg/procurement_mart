@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: fact_headcount_aggr
+    description: >
+      Mart table is for headcount aggregation
+
+  - name: fact_headcount_aggr_snap
+    description: >
+      Sanpshot table is for headcount aggregation

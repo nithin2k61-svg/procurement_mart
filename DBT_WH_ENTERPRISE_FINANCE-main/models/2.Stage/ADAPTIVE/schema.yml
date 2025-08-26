@@ -1,0 +1,29 @@
+version: 2
+
+
+
+models:
+  - name: stg_budgets_aggr
+    description: >
+      Stage table is with budget data sourced from Adaptive
+  - name: stg_adaptive_client
+    description: >
+      Stage table is client information from Adaptive
+  - name: stg_adaptive_cdw_financeparent_map
+    description: >
+      Stage table is with Adaptive finance parent mapping information
+  - name: stg_revenue_adaptive
+    description: >
+      Stage table is with all the revenue information from Adaptive
+  - name: stg_crev_aggr
+    description: >
+      Stage table is with all the revenue information from Adaptive
+  - name: stg_revenue_adaptive_aggr
+    description: >
+      Stage table is with all the revenue information from Adaptive     
+  - name: stg_exchrates
+    description: >
+      Stage table is with all the exchrates information from Adaptive
+  - name: stg_accounts
+    description: >
+      Stage table is with all the accounts information from Adaptive

@@ -1,0 +1,26 @@
+version: 2
+sources:
+  - name: ads_reporting_sources
+    description: List of all Salesforce source tables
+    database:  |
+      {%- if  target.name == "dev" -%} DEV_ADS_REPORTING
+      {%- elif target.name == "qa"  -%} QA_ADS_REPORTING
+      {%- elif target.name == "uat"  -%} PROD_ADS_REPORTING
+      {%- elif target.name == "prod"  -%}  PROD_ADS_REPORTING
+      {%- else -%} invalid_database
+      {%- endif -%} 
+    schema: model
+    tables:
+      - name: dimuser
+        description: Table has the user information
+      - name: DIM_ZSCORE_PERCENTILE
+        description: Table has the z score information
+      - name: DIM_CH_KPI
+        description: Table has the kpi information
+      - name: DIM_CH_KPI_MAP
+        description: Table has the kpi map information
+      - name: DIM_CH_SCORE_METRIC
+        description: Table has the kpi metric information   
+      - name: DIM_SEGMENT
+        description: Table has the segment information   
+                     
