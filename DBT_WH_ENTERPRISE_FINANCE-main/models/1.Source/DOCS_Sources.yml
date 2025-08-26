@@ -1,0 +1,53 @@
+version: 2
+sources:
+  - name: docsshared_client_sources
+    description: List of all DOCS source tables For PVM datamart
+    database: |
+      {%- if  target.name == "dev" -%} DEV_DATALAKE
+      {%- elif target.name == "qa"  -%} QA_DATALAKE
+      {%- elif target.name == "uat"  -%} PROD_DATALAKE
+      {%- elif target.name == "prod"  -%} PROD_DATALAKE
+      {%- else -%} invalid_database
+      {%- endif -%}
+    schema: DOCSSHARED_CLIENT
+    tables:
+      - name: Clients
+        description: Table has the Docs client data
+      - name: clientformatsettings
+        description: Table has the Dcos client format stttings
+      - name: pricing
+        description: Tabel has pricing information
+      - name: saasvpay_revenue
+        description: Table has saasvpay revenue information 
+
+  - name: docsclient_aggregation_sources
+    description: List of all DOCS Datamart source tables For PVM datamart
+    database: |
+      {%- if  target.name == "dev" -%} DEV_DATALAKE
+      {%- elif target.name == "qa"  -%} QA_DATALAKE
+      {%- elif target.name == "uat"  -%} UAT_DATALAKE
+      {%- elif target.name == "prod"  -%} PROD_DATALAKE
+      {%- else -%} invalid_database
+      {%- endif -%}
+    schema: DOCSCLIENT_AGGREGATION
+    tables:
+      - name: data
+        description: Table has the Docs  data
+
+  - name: docsshared_reference_sources
+    description: List of all DOCS Datamart source tables For PVM datamart
+    database: |
+      {%- if  target.name == "dev" -%} DEV_DATALAKE
+      {%- elif target.name == "qa"  -%} QA_DATALAKE
+      {%- elif target.name == "uat"  -%} PROD_DATALAKE
+      {%- elif target.name == "prod"  -%} PROD_DATALAKE
+      {%- else -%} invalid_database
+      {%- endif -%}
+    schema: DOCSSHARED_REFERENCE
+    tables:
+      - name: aggregatetypes
+        description: Table has the Docs aggregatetypes data
+      - name: parts
+        description: Table has the docs Parts data
+      - name: pricingpointcategory
+        description: Table has pricing point category data

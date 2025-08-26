@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: fact_budgets_aggr
+    description: >
+      Mart table is for budget aggregation fact
+
+  - name: fact_budgets_aggr_snap
+    description: >
+      Snapshot table is for budget aggregation fact
+
+  - name: fact_crev_aggr
+    description: >
+      Mart table is for claim aggregation fact 
+
+  - name: fact_fullrev_aggr
+    description: >
+      Mart table is for full revenue aggregation fact      
+
+  - name: fact_fullrev_aggr_snap
+    description: >
+      Snapshot table is for full revenue aggregation fact 
+
+  - name: fact_opex_aggr
+    description: >
+      Mart table is for operations expenses aggregation fact            
+
+  - name: fact_opex_aggr_snap
+    description: >
+      Snapshot table is for operations expenses aggregation fact  
+
+  - name: fact_revenue_adaptive_aggr_daily
+    description: >
+      Mart table is with all the revenue information from Adaptive
+
+  - name: fact_revenue_aggr
+    description: >
+      Mart table is for revenue aggregation fact                 
+
+  - name: fact_revenue_aggr_snap
+    description: >
+      Snapshot table is for revenue aggregation fact  
+      
+  

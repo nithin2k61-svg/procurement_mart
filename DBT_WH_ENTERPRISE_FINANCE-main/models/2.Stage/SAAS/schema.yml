@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: stg_revenue_saas
+    description: >
+      Stage table is with SAAS revenue information
+
+  - name: stg_saas_client
+    description: >
+      Stage table is with SAAS client information      

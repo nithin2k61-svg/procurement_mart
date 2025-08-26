@@ -1,0 +1,79 @@
+version: 2
+
+models:
+  - name: DIM_accountmanager
+    description: >
+      Client Health view is for account manager dimension
+
+  - name: DIM_client_ch
+    description: >
+      Client Health view is for client dimension      
+
+  - name: DIM_kpiweight
+    description: >
+      Client Health view is with KPI weight information
+
+  - name: DIM_product_profile_map
+    description: >
+      Client Health view is for product profile map dimension
+
+  - name: DIM_product_type_ch
+    description: >
+      Client Health view is for product type dimension      
+
+  - name: DIM_producttype_rank
+    description: >
+      Client Health view is for product type rank information
+
+  - name: DIM_salesrep
+    description: >
+      Client Health view is for sales rep dimension
+
+  - name: DIM_segment
+    description: >
+      Client Health view is for segment information
+
+  - name: DIM_zscorepercentile
+    description: >
+      Client Health view is for Z score percentile information      
+
+  - name: FACT_budget_refresh
+    description: >
+      Client Health view is for budget fact table refresh information            
+
+  - name: FACT_claim_refresh
+    description: >
+      Client Health view is for claim fact table refresh information                  
+
+  - name: FACT_comms_refresh
+    description: >
+      Client Health view is for commissions fact table refresh information                        
+
+  - name: FACT_payments_refresh
+    description: >
+      Client Health view is for payments fact table refresh information                              
+
+  - name: FACT_revenue_refresh
+    description: >
+      Client Health view is for revenue fact table refresh information                                    
+
+  - name: FACT_budgets
+    description: >
+      Client Health view is for budget fact table                                          
+
+  - name: FACT_claims
+    description: >
+      Client Health view is for claim fact table
+
+  - name: FACT_comms
+    description: >
+      Client Health view is for commissions fact table
+
+  - name: FACT_payments
+    description: >
+      Client Health view is for payments fact table
+
+  - name: FACT_revenue
+    description: >
+      Client Health view is for revenue fact table
+

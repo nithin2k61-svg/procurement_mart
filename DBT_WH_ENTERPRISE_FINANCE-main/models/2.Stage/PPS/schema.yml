@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_payments_aggr
+    description: >
+      Stage table is with PPS payment aggregation
+
+  - name: stg_pps_ppswh_client
+    description: >
+      Stage table is with PPS client information      
+
+  - name: stg_revenue_pps_aggr
+    description: >
+      Stage table is with PPS revenue aggregation           
+  
+  - name: stg_pps_ppswh_provider
+    description: >
+      Stage table is with PPS provider 

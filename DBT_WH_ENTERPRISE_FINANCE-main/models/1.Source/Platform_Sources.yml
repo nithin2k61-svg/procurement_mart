@@ -1,0 +1,15 @@
+version: 2
+sources:
+  - name: platform_sources
+    description: List of all platform source tables
+    database:  |
+      {%- if  target.name == "dev" -%} DEV_ZDI_REFERENCES
+      {%- elif target.name == "qa"  -%} QA_ZDI_REFERENCES
+      {%- elif target.name == "uat"  -%} PROD_ZDI_REFERENCES
+      {%- elif target.name == "prod"  -%}  PROD_ZDI_REFERENCES
+      {%- else -%} invalid_database
+      {%- endif -%} 
+    schema: PLATFORM
+    tables:
+      - name: SOURCESYSTEM
+        description: Table has contains the souresystem details like id , name etc..

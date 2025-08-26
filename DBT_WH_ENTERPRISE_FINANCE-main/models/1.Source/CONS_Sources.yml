@@ -1,0 +1,34 @@
+version: 2
+sources:
+  - name: cons_sources
+    description: List of all CONS source tables
+    database: |
+      {%- if  target.name == "dev" -%} DEV_DATALAKE
+      {%- elif target.name == "qa"  -%} QA_DATALAKE
+      {%- elif target.name == "uat"  -%} PROD_DATALAKE
+      {%- elif target.name == "prod"  -%} PROD_DATALAKE
+      {%- else -%} invalid_database
+      {%- endif -%}
+    schema: ch_references
+    tables:
+      - name: ref_businessunit
+        description: Table has the business unit data
+      - name: ref_sourcesystem
+        description: Table has the source system information
+      - name: ref_producttype
+        description: Table has the product type information
+
+  - name: calendar_sources
+    description: List of all CALENDER Freference tables
+    database: |
+      {%- if  target.name == "dev" -%} DEV_ZDI_REFERENCES
+      {%- elif target.name == "qa"  -%} QA_ZDI_REFERENCES
+      {%- elif target.name == "uat"  -%} UAT_ZDI_REFERENCES
+      {%- elif target.name == "prod"  -%} PROD_ZDI_REFERENCES
+      {%- else -%} invalid_database
+      {%- endif -%}
+    schema: CALENDAR
+    tables:
+      - name: DATE
+        description: Table has the calendar date data
+        
