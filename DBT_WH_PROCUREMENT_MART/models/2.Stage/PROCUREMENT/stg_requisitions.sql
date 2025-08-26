@@ -20,10 +20,10 @@ with
             BUSINESS_DOCUMENT_INTERNAL_MEMO,
             '5' as src_sys_id,
             concat(src_sys_id, '_', REQUISITION_NUMBER) as src_uniq_cd,
-            coalesce(RAW_ROW_CRE_DT, getdate()) as row_cre_dt,
-            coalesce(ROW_CRE_USR_ID, 'SFAdmin') as row_cre_usr_id,
-            coalesce(RAW_ROW_CRE_DT, getdate()) as row_mod_dt,
-            coalesce(ROW_MOD_USR_ID, 'SFAdmin') as row_mod_usr_id
+            getdate() as row_cre_dt,
+            'SFAdmin' as row_cre_usr_id,
+            getdate() as row_mod_dt,
+            'SFAdmin' as row_mod_usr_id
         from {{ source("procurement_sources", "REQUISITIONS_BY_COMPANY") }}
         where REQUISITION_NUMBER is not null
     )
