@@ -1,0 +1,219 @@
+version: 2
+
+models:
+  - name: intr_dim_supplier
+    description: Intermediate supplier dimension table
+    columns:
+      - name: SUPPLIER_CODE
+        description: Unique supplier identifier
+        tests:
+          - not_null
+          - unique
+      - name: SUPPLIER_NAME
+        description: Supplier name
+        tests:
+          - not_null
+      - name: src_uniq_cd
+        description: Source unique code
+        tests:
+          - not_null
+          - unique
+
+  - name: intr_dim_company
+    description: Intermediate company dimension table
+    columns:
+      - name: COMPANY_CODE
+        description: Unique company identifier
+        tests:
+          - not_null
+          - unique
+      - name: COMPANY_NAME
+        description: Company name
+        tests:
+          - not_null
+      - name: src_uniq_cd
+        description: Source unique code
+        tests:
+          - not_null
+          - unique
+
+  - name: intr_dim_spend_category
+    description: Intermediate spend category dimension table
+    columns:
+      - name: SPEND_CATEGORY_CODE
+        description: Unique spend category identifier
+        tests:
+          - not_null
+          - unique
+      - name: SPEND_CATEGORY_NAME
+        description: Spend category name
+        tests:
+          - not_null
+      - name: src_uniq_cd
+        description: Source unique code
+        tests:
+          - not_null
+          - unique
+
+  - name: intr_dim_cost_center
+    description: Intermediate cost center dimension table
+    columns:
+      - name: COST_CENTER_CODE
+        description: Unique cost center identifier
+        tests:
+          - not_null
+          - unique
+      - name: COST_CENTER_NAME
+        description: Cost center name
+        tests:
+          - not_null
+      - name: src_uniq_cd
+        description: Source unique code
+        tests:
+          - not_null
+          - unique
+
+  - name: intr_dim_currency
+    description: Intermediate currency dimension table
+    columns:
+      - name: CURRENCY_CODE
+        description: Unique currency identifier
+        tests:
+          - not_null
+          - unique
+      - name: CURRENCY_NAME
+        description: Currency name
+        tests:
+          - not_null
+      - name: src_uniq_cd
+        description: Source unique code
+        tests:
+          - not_null
+          - unique
+
+  - name: intr_dim_buyer
+    description: Intermediate buyer dimension table
+    columns:
+      - name: BUYER_CODE
+        description: Unique buyer identifier
+        tests:
+          - not_null
+          - unique
+      - name: BUYER_NAME
+        description: Buyer name
+        tests:
+          - not_null
+      - name: src_uniq_cd
+        description: Source unique code
+        tests:
+          - not_null
+          - unique
+
+  - name: intr_dim_location
+    description: Intermediate location dimension table
+    columns:
+      - name: LOCATION_CODE
+        description: Unique location identifier
+        tests:
+          - not_null
+          - unique
+      - name: LOCATION_NAME
+        description: Location name
+        tests:
+          - not_null
+      - name: src_uniq_cd
+        description: Source unique code
+        tests:
+          - not_null
+          - unique
+
+  - name: intr_dim_project
+    description: Intermediate project dimension table
+    columns:
+      - name: PROJECT_CODE
+        description: Unique project identifier
+        tests:
+          - not_null
+          - unique
+      - name: PROJECT_NAME
+        description: Project name
+        tests:
+          - not_null
+      - name: src_uniq_cd
+        description: Source unique code
+        tests:
+          - not_null
+          - unique
+
+  - name: intr_fact_purchase_orders
+    description: Intermediate purchase orders fact table
+    columns:
+      - name: PO_NUMBER
+        description: Purchase order number
+        tests:
+          - not_null
+      - name: LINE
+        description: Purchase order line
+        tests:
+          - not_null
+      - name: src_uniq_cd
+        description: Source unique code
+        tests:
+          - not_null
+          - unique
+
+  - name: intr_fact_supplier_invoices
+    description: Intermediate supplier invoices fact table
+    columns:
+      - name: SUPPLIER_INVOICE
+        description: Supplier invoice identifier
+        tests:
+          - not_null
+      - name: src_uniq_cd
+        description: Source unique code
+        tests:
+          - not_null
+          - unique
+
+  - name: intr_fact_requisitions
+    description: Intermediate requisitions fact table
+    columns:
+      - name: REQUISITION_NUMBER
+        description: Requisition number
+        tests:
+          - not_null
+      - name: src_uniq_cd
+        description: Source unique code
+        tests:
+          - not_null
+          - unique
+
+  - name: intr_fact_receipts
+    description: Intermediate receipts fact table
+    columns:
+      - name: RECEIPT
+        description: Receipt identifier
+        tests:
+          - not_null
+      - name: src_uniq_cd
+        description: Source unique code
+        tests:
+          - not_null
+          - unique
+
+  - name: intr_fact_payments
+    description: Intermediate payments fact table
+    columns:
+      - name: SUPPLIER_ID
+        description: Supplier identifier
+        tests:
+          - not_null
+      - name: PAYMENT_DATE
+        description: Payment date
+        tests:
+          - not_null
+      - name: src_uniq_cd
+        description: Source unique code
+        tests:
+          - not_null
+          - unique
