@@ -1,7 +1,0 @@
-packages:
-  - package: dbt-labs/dbt_utils
-    version: 1.0.0
-  - package: godatadriven/dbt_date
-    version:  0.7.2
-  - package: get-select/dbt_snowflake_query_tags
-    version: [">=2.0.0", "<3.0.0"] 
